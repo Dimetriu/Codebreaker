@@ -23,5 +23,9 @@ module Codebreaker
       p @secret.shuffle.take(1).join
       @hint = false
     end
+
+    def decrement_turn
+      @turns -= 1
+    end
   end
 end
