@@ -17,5 +17,11 @@ module Codebreaker
     def generate
       (1..4).map { rand(1..6) }
     end
+
+    def use_a_hint
+      return false if @hint == false
+      p @secret.shuffle.take(1).join
+      @hint = false
+    end
   end
 end
