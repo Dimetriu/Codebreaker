@@ -27,5 +27,36 @@ module Codebreaker
     def decrement_turn
       @turns -= 1
     end
+
+    def exact_match(guess)
+      @secret == guess
+    end
+
+    def limit_condition(guess)
+      exact_match(guess) || @turns < 1
+    end
+
+    def loose_condition(guess)
+      !exact_match(guess) && @turns == 0
+    end
+
+    def check(guess, result = [])
+      return false if @secret == guess
+      @secret = position_match(guess, result)
+      number_match(guess, result)
+      p result.join
+    end
+
+    def position_match(guess, result)
+      @secret.zip(guess.take(@secret.size)).delete_if do |position|
+        result << "+" if position[0] == position[1]
+      end.transpose.delete_at(0)
+    end
+
+    def number_match(guess, result)
+      guess.each_index do |number|
+        result << "-" if guess.uniq.include? @secret.uniq[number]
+      end
+    end
   end
 end
