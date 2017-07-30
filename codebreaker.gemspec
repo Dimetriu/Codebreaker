@@ -1,4 +1,3 @@
-# coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "codebreaker/version"
@@ -11,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{gem Codebreaker.}
   spec.description   = %q{A simple logic game.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/Dimetriu/Codebreaker."
   spec.license       = "MIT"
 
   if spec.respond_to?(:metadata)
