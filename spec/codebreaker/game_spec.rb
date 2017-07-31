@@ -72,11 +72,6 @@ module Codebreaker
           expect(game.instance_variable_get(:@secret)).not_to eq(guess)
         end
       end
-
-      context ".check" do
-
-        
-      end
     end
   end
 end
