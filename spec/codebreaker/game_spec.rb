@@ -4,6 +4,15 @@ module Codebreaker
   RSpec.describe Game do
     subject(:game) { Game.new }
 
+    RSpec.shared_examples "an exact_match" do
+      context "exact_match" do
+        it "checks the exact match between secret code and user guess" do
+          guess = game.instance_variable_get(:@secret)
+          expect(game.instance_variable_get(:@secret)).to eq(guess)
+        end
+      end
+    end
+
     it "provides a ten turns" do
       expect(game.instance_variable_get(:@turns)).to eq(10)
     end
@@ -53,10 +62,8 @@ module Codebreaker
 
       context ".exact_match(guess)" do
 
-        it "checks the exact match between secret code and user guess" do
-          guess = game.instance_variable_get(:@secret)
-          game.exact_match(guess)
-          expect(game.instance_variable_get(:@secret)).to eq(guess)
+        it_behaves_like "an exact_match" do
+          let(:guess) { game.exact_match(game.instance_variable_get(:@secret)) }
         end
 
         it "checks that match between secret code and user guess is not the exact" do
@@ -68,9 +75,7 @@ module Codebreaker
 
       context ".check" do
 
-        context ".position_match(guess, result)" do
-
-        end
+        
       end
     end
   end

@@ -41,11 +41,13 @@ module Codebreaker
     end
 
     def check(guess, result = [])
-      return false if @secret == guess
+      return false if exact_match(guess)
       @secret = position_match(guess, result)
       number_match(guess, result)
       p result.join
     end
+
+    private
 
     def position_match(guess, result)
       @secret.zip(guess.take(@secret.size)).delete_if do |position|
