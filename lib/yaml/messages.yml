@@ -1,0 +1,8 @@
+:message:
+  :intro: "Enter your name please: "
+  :rules: "Type only 4 digits from 1 to 6."
+  :welcome: "welcome to Codebreaker logic game!"
+  :win: "Congrats, YOU WIN!!!"
+  :game_over: "Game over"
+  :approach: "Type 'h' to use a hint. Hint is available only once. You can type Enter if you don`t need a hint"
+  :try_again: " \nWould you like to play again? [y/n]?"
